@@ -12,11 +12,13 @@
 
 <style scoped>
 .fade-hidden {
+	transition: 0.9s cubic-bezier(0.250, 0.460, 0.450, 0.940);
 	opacity: 0;
-	transition: 0.9s ease-out;
+	transform: translateY(-40px) scale(1.2);
 }
 .fade-show {
 	opacity: 1;
+	transform: translateY(0px) scale(1);
 }
 h1 {
 	position: relative;
@@ -42,7 +44,7 @@ function Observe() { // Создание Intersection observerer для аним
 				}
 			})
 		}
-	}, {threshold: 1.0})
+	})
 	const hiddenElements = document.querySelectorAll('.fade-hidden')
 	hiddenElements.forEach((e) => {
 		observer.observe(e)
