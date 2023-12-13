@@ -11,6 +11,13 @@
 	</div>
 </template>
 
+<style scoped>
+@media only screen and (max-width: 768px) {
+	h1 {
+		color: red;
+	}
+}
+</style>
 
 <script>
 export default {
