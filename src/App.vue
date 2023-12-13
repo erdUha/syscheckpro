@@ -28,7 +28,7 @@ html, body {
 .pages {
 	padding-top: 50px;
 	width: 100%;
-	height: 100vh;
+	height: 3000px;
 }
 #router {
 	grid-row-start: 1;
