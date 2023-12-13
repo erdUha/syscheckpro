@@ -6,6 +6,7 @@
 		<router-link class="link" to="/">Main</router-link>
 		<router-link class="link" to="/about">About</router-link>
 		<router-link class="link" to="/test">Test</router-link>
+		<a class="link" href="/login">Login</a>
 	</div>
 </template>
 
