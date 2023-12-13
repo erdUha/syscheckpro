@@ -12,8 +12,8 @@
 	</div>
 </template>
 
-<style src="./style.css"></style>
-<style src="./transitions.css"></style>
+<style lang="sass" src="./styles/style.sass"></style>
+<style src="./styles/transitions.css"></style>
 
 <style>
 html, body {
@@ -31,12 +31,13 @@ html, body {
 	height: 100vh;
 }
 #router {
-	grid-row-start: 1;
-	grid-column-start: 1;
 }
 #router-wrapper {
-	display: grid; /* Для того, чтобы 2 странички с id="router" накладывались друг на друга */
-	grid-template-columns: 1fr;
+	display: grid; /* Для того, чтобы при анимации, 2 состояния роутера были на одном и том-же месте */
+	grid-template-areas: "stack";
+}
+#router-wrapper > * {
+	grid-area: stack;
 }
 #app {
 	position: relative;
@@ -47,6 +48,7 @@ html, body {
 
 <script>
 import NavBar from './components/NavBar.vue'
+import { onMounted } from 'vue'
 export default {
   name: 'App',
   components: {
