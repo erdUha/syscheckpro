@@ -4,7 +4,7 @@
 			<div class="column">
 				<router-link class="noselect footer-link" to="/">Главная</router-link>
 				<router-link class="noselect footer-link" to="/articles">Статьи</router-link>
-				<router-link class="noselect footer-link" to="/sql-tutorial">SQL туториал</router-link>
+				<router-link class="noselect footer-link" to="/check-cpu">Тест процессора</router-link>
 			</div>
 			<div class="column">
 				<router-link class="noselect footer-link" to="/login">Войти в аккаунт</router-link>

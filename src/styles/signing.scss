@@ -1,5 +1,5 @@
 h2 {
-	color: #fff;
+	color: #000;
 	font-size: 2.15rem;
 	font-weight: 600;
 	margin-bottom: 2.5rem;
@@ -31,7 +31,7 @@ h2 {
   100% { transform: rotate(360deg); }
 }
 input[type='email']:focus, input[type='text']:focus, input[type='password']:focus {
-	background-color: #555;
+	background-color: #bbb;
 	border-color: #ddd;
 	box-shadow: inset 0 0 0.75rem rgba(0,0,0,0.2);
 }
@@ -43,8 +43,8 @@ input[type='email'], input[type='text'], input[type='password'] {
 	padding: 0.2rem 1rem;
 	border: 2px solid #999;
 	border-radius: 100px;
-	background-color: #555;
-	color: #fff;
+	background-color: #ccc;
+	color: #000;
 	font-size: 0.875rem;
 	font-weight: 400;
 	box-shadow: inset 0 0 1rem rgba(0,0,0,0.0875);
@@ -53,7 +53,7 @@ input[type='email'], input[type='text'], input[type='password'] {
 .submit-register:hover, .submit-login:hover {
 	background-color: #555;
 	box-shadow: inset 0 0 0.75rem rgba(0,0,0,0.15);
-	color: #fff;
+	color: #000;
 }
 .submit-register:active, .submit-login:active {
 	background-color: #333;
@@ -113,13 +113,13 @@ div.submit-login, div.submit-register {
 	max-height: 60vh;
 }
 #signup {
-	background-color: #171618;
+	background-color: #ddd;
 	padding: 1.5rem 2.5rem;
 	border: 2px solid #555;
 	border-radius: 0.75rem;
 }
 #login {
-	background-color: #171618;
+	background-color: #ddd;
 	padding: 1.5rem 2.5rem;
 	border: 2px solid #555;
 	border-radius: 0.75rem;

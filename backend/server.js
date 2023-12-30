@@ -94,11 +94,32 @@ app.get('/api/islogged', async (req, res) => {
 		try {
 			const result = await db.query("SELECT * FROM users WHERE id = " + credentials.id);
 			if (result.rows && result.rows[0].username === credentials.name) {
+				res.cookie('isLogged', true, {
+					expiresIn: '1d',
+					httpOnly: false,
+					sameSite: 'lax'
+				});
+				res.cookie('username', result.rows[0].username, {
+					expiresIn: '1d',
+					httpOnly: false,
+					sameSite: 'lax'
+				});
+				res.cookie('email', result.rows[0].email, {
+					expiresIn: '1d',
+					httpOnly: false,
+					sameSite: 'lax'
+				});
 				res.send({
 					isLogged: true,
-					email: result.rows[0].email
+					username: result.rows[0].username,
+					email: result.rows[0].email,
 				});
 			} else {
+				res.cookie('isLogged', false, {
+					expiresIn: '1d',
+					httpOnly: false,
+					sameSite: 'lax'
+				});
 				res.send({
 					isLogged: false
 				});

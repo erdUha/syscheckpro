@@ -3,10 +3,10 @@
 		Тех. поддержка
 	</h2>
 	<div id="support-wrapper">
-		<input type="email" id="support-email" placeholder="E-mail" /><br>
-		<input type="text" id="support-name" placeholder="Имя, Фамилия" /><br>
-		<textarea id="support-text" placeholder="Введите ваш вопрос по сайту" /><br>
-		<button @click="sendEmail">Отправить</button>
+		<input type="email" id="support-email" required placeholder="E-mail" /><br>
+		<input type="text" id="support-name" required placeholder="Имя, Фамилия" /><br>
+		<textarea id="support-text" required placeholder="Введите ваш вопрос по сайту" /><br>
+		<button type="submit" @click="sendEmail">Отправить</button>
 	</div>
 </template>
 
@@ -15,7 +15,7 @@ h2 {
 	height: 1rem;
 }
 #support-wrapper {
-	background-color: #171618;
+	background-color: #ddd;
 	padding: 1.5rem 2.5rem;
 	padding-top: 3rem;
 	border: 2px solid #555;
@@ -56,16 +56,22 @@ textarea {
 	padding: 1.25rem 1.25rem;
 	border: 2px solid #999;
 	border-radius: 1.25rem;
-	background-color: #555;
-	color: #fff;
+	background-color: #ccc;
+	color: #000;
 	font-size: 0.875rem;
 	font-weight: 400;
 	box-shadow: inset 0 0 1rem rgba(0,0,0,0.0875);
 	transition: 0.1s ease-in-out;
 }
+textarea:focus {
+	background-color: #bbb;
+	border-color: #ddd;
+}
 </style>
 
 <script>
+	import { router } from '../router.js'
+
 export default {
 	name: 'SupportComp',
 	methods: {
@@ -82,11 +88,12 @@ export default {
 				},
 				body: JSON.stringify({
 					'name': name,
-					'password': email,
+					'email': email,
 					'text': text,
 				}),
 			}).then((response) => response.json())
 			.then((json) => {
+				router.push('/')
 			})
 			.catch((err) => {
 			})

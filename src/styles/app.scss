@@ -1,9 +1,10 @@
-@import '@sweetalert2/theme-dark/dark.scss';
+@import 'sweetalert2/dist/sweetalert2.css';
 html {
   scroll-behavior: smooth;
 }
 :root {
-	background-color: #302e33;
+	background-color: #eee;
+	color: #000;
   font-family: Manrope, Inter, SegoeUI, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;

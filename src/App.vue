@@ -63,10 +63,6 @@ export default {
 		NavBar,
 		FooterComp,
   },
-	setup() {
-		onMounted(() => {
-		})
-	},
 	data() {
     return {
       prevHeight: 10000,

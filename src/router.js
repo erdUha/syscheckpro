@@ -4,13 +4,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import MainPage from './components/Pages/MainPage.vue'
 import LogIn from './components/LogIn.vue'
 import SignUp from './components/SignUp.vue'
-import SqlTutorial from './components/SqlTutorial.vue'
 import SupportComp from './components/SupportComp.vue'
 import MainArticles from './components/Pages/Articles/MainArticles.vue'
-import FirstNodejs from './components/Pages/Articles/FirstNodejs.vue'
+import Shemotekhnica from './components/Pages/Articles/Shemotekhnica.vue'
 import GetSupport from './components/GetSupport.vue'
+import CheckCpu from './components/Pages/CheckCpu.vue'
 
-console.log(window.location.href);
 export const router = createRouter({
 	history: createWebHistory(),
 	routes: [
@@ -18,7 +17,7 @@ export const router = createRouter({
 			path: '/',
 			name: 'home',
 			component: MainPage,
-			meta: { transition: 'fade' },
+			meta: { transition: 'fade-noslide' },
 		},
 		{
 			path: '/signin',
@@ -31,12 +30,6 @@ export const router = createRouter({
 			name: 'signup',
 			component: SignUp, 
 			meta: { transition: 'slide-left' }
-		},
-		{
-			path: '/sql-tutorial',
-			name: 'SqlTutorial',
-			component: SqlTutorial, 
-			meta: { transition: 'fade' }
 		},
 		{
 			path: '/support',
@@ -53,7 +46,7 @@ export const router = createRouter({
 		{
 			path: '/first-nodejs',
 			name: 'First Nodejs',
-			component: FirstNodejs, 
+			component: Shemotekhnica, 
 			meta: { transition: 'slide-right' }
 		},
 		{
@@ -61,6 +54,12 @@ export const router = createRouter({
 			name: 'get support',
 			component: GetSupport, 
 			meta: { transition: 'slide-right' }
+		},
+		{
+			path: '/check-cpu',
+			name: 'check cpu',
+			component: CheckCpu, 
+			meta: { transition: 'fade' }
 		},
 	]
 })

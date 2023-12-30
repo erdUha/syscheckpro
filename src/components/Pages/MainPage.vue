@@ -39,28 +39,29 @@ onMounted(function () {
 </script>
 <template>
 	<div>
+		<div data-aos="fade-up" id="motherboard"></div>
 		<div id="main-page">
 			<h1 class="ease-cool" data-aos-delay="250" data-aos-duration="800" data-aos="fade-left" id="main-text">
-				<strong>LinuxGO</strong><br /><br />
-				<span class="small">Создайте сайт вашей мечты!</span>
+				<strong>SysCheckPro</strong><br /><br />
+				<span class="small">Тестирование вашего компьютера</span>
 			</h1>
 		</div>
 		<div class="ease-cool no-delay" id="section-1" data-aos-delay="150" data-aos="zoom-out-right" data-aos-anchor-placement="bottom-bottom">
-			<h3>Научитесь понимать и реализовывать Back-End часть для <strong>вашего</strong> сайта</h3>
+			<h3>Проверьте мощность вашего компьютера в различных тестах</h3>
 		</div>
 		<div id="frameworks">
-			<h3 class="ease-cool no-delay" data-aos="zoom-out" data-aos-delay="350" data-aos-anchor-placement="bottom-bottom">Справочный материал для самых прогрессивных фреймворков</h3>
-			<img loading="lazy" data-aos="zoom-out-right" data-aos-offset="150" data-aos-anchor-placement="bottom-bottom" class="ease-cool noselect no-delay" @click="scrollToTop(); router.push('/about')" width="200px" src="../../assets/nodejs.png" />
-			<img loading="lazy" data-aos-delay="200" data-aos="zoom-out-up" data-aos-offset="150" data-aos-anchor-placement="bottom-bottom" class="ease-cool noselect no-delay" width="200px" src="../../assets/django.png" />
-			<img loading="lazy" data-aos-delay="350" data-aos="zoom-out-left" data-aos-offset="150" data-aos-anchor-placement="bottom-bottom" class="ease-cool noselect no-delay" width="200px" src="../../assets/flask.png" />
+			<h3 class="ease-cool no-delay" data-aos="zoom-out" data-aos-delay="350" data-aos-anchor-placement="bottom-bottom">Справочный материал по схемотехнике компьютера</h3>
+			<img loading="lazy" data-aos="zoom-out-right" data-aos-offset="150" data-aos-anchor-placement="bottom-bottom" class="ease-cool noselect no-delay" @click="scrollToTop(); router.push('/about')" width="200px" src="../../assets/ram.webp" />
+			<img loading="lazy" data-aos-delay="200" data-aos="zoom-out-up" data-aos-offset="150" data-aos-anchor-placement="bottom-bottom" class="ease-cool noselect no-delay" width="200px" src="../../assets/cpu.webp" />
+			<img loading="lazy" data-aos-delay="350" data-aos="zoom-out-left" data-aos-offset="150" data-aos-anchor-placement="bottom-bottom" class="ease-cool noselect no-delay" width="200px" src="../../assets/gpu.webp" />
 		</div>
 		<div class="ease-cool no-delay" id="section-2" data-aos-offset="150" data-aos="zoom-out-left" data-aos-anchor-placement="bottom-bottom">
-			<h3>Решайте интерактивные задачи по <strong>базам данных</strong></h3>
+			<h3>Сравнивайте ваши результаты с результатами других пользователей</h3>
 		</div>
-		<img loading="lazy" data-aos-offset="300" data-aos-duration="1000" data-aos="flip-down" id="pg-anim" src="../../assets/posgres-test.webp" />
+		<img loading="lazy" data-aos-offset="300" data-aos-duration="1000" data-aos="flip-down" id="pg-anim" src="../../assets/cpu-check.png" />
 		<div data-aos="fade-up" data-aos-anchor-placement="center-bottom" id="section-3">
 			<div>
-				<h3>Давайте начнем!</h3>
+				<h3 style="color: #fff !important">Давайте начнем!</h3>
 				<button @click="redirect()">Введение</button>
 			</div>
 		</div>
@@ -69,7 +70,7 @@ onMounted(function () {
 
 <style scoped>
 #section-3 button:hover {
-	background-color: #8f68d1;
+	background-color: #ddd;
 	color: black;
 }
 #section-3 button {
@@ -96,7 +97,7 @@ onMounted(function () {
 	width: 100%;
 	height: 15vw;
 	top: 50vw;
-	background-color: rgba(12,11,15,0.5);
+	background-color: rgba(2,11,15,0.5);
 	box-shadow: 0 0 13vw rgba(12,11,15,1);
 }
 #section-3 {
@@ -110,9 +111,31 @@ onMounted(function () {
 #pg-anim {
 	width: min(80%, 1083px);
 }
+#motherboard {
+	position: absolute;
+	background-image: url('../../assets/motherboard.webp');
+	background-size: cover;
+	top: 0;
+	margin: 0; padding: 0;
+	right: 0;
+	height: 100vh;
+	width: calc(80vw - 20rem);
+}
 @media (max-width: 32em) {
 	#pg-anim {
 		width: 95%;
+	}
+}
+@media (max-width: 64em) {
+	#motherboard {
+		width: 60vw;
+	}
+}
+@media (max-width: 48em) {
+	#motherboard {
+		height: 80vh;
+		top: calc(150vh - 80vh);
+		width: 80vw;
 	}
 }
 strong {
@@ -131,7 +154,7 @@ strong {
 	margin-bottom: 2rem;
 }
 #frameworks {
-	background-color: #201f21;
+	background-color: #fff;
 	padding: 2.5rem 0;
 }
 #section-1 h3, #section-2 h3 {
@@ -144,11 +167,15 @@ strong {
 	height: 10rem;
 }
 @media (min-width: 48em) {
+	#main-page h1 {
+		text-align: left !important;
+		max-width: calc(10rem + 20%);
+	}
 	#frameworks {
 		padding-top: 10rem;
 	}
 	#section-1, #section-2 {
-		background-color: #252428;
+		background-color: #ccc;
 		border: 4px solid #555;
 		border-radius: 1rem;
 		padding: 2rem 0;
@@ -173,9 +200,11 @@ strong {
 	top: calc(30vh - 3.25rem);
 	line-height: 0.625em;
 }
+#main-page h1 {
+	text-align: center;
+}
 #main-page {
-	background-image: url('../../assets/main-page.jpg');
-	background-size: cover;
+	background: linear-gradient(90deg, #4373D9, #2AC9A3);
 	width: 100%;
 	height: calc(100vh - 3rem);
 }
@@ -197,7 +226,7 @@ strong {
 }
 @media (max-width: 48em) {
 	#main-page {
-		height: calc(100vh - 3.25rem);
+		height: calc(150vh - 3.25rem);
 	}
 }
 @media (max-width: 36em) {

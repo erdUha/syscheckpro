@@ -17,7 +17,24 @@ function exitMenu(isAnimation) {
 		}, 100)
 	}
 }
-onMounted(() => {
+const checkIsLogged = async () => {
+	const res = await fetch('/api/islogged', {
+		method: 'GET',
+		credentials: 'same-origin',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		}
+	}).then((response) => response.json())
+		.then((json) => {
+			isLogged.value = json.isLogged
+			username.value = json.username
+		})
+		.catch((err) => {
+			//console.error(err)
+		})
+}
+onMounted(async () => {
 	const mobileMenu = document.querySelector('#mobile-menu')
 	const mobileMenuClose = document.querySelector('#mobile-menu-close');
 	let timer = null
@@ -38,6 +55,7 @@ onMounted(() => {
 			exitMenu()
 		}
 	})
+	checkIsLogged()
 });
 </script>
 
@@ -58,27 +76,39 @@ onMounted(() => {
 			<div id="mobile-menu">
 				<router-link @click="exitMenu()" class="noselect m-link" to="/">Главная</router-link>
 				<router-link @click="exitMenu()" class="noselect m-link" to="/articles">Статьи</router-link>
-				<router-link @click="exitMenu()" class="noselect m-link" to="/sql-tutorial">SQL Туториал</router-link>
 				<router-link @click="exitMenu()" class="noselect m-link" to="/support">Об. Связь</router-link>
+				<router-link @click="exitMenu()" class="noselect m-link" to="/check-cpu">Тест процессора</router-link>
 			</div>
 		</div>
 		<div id="icon"></div>
 		<div id="desktop-links">
 			<router-link class="noselect link" to="/">Главная</router-link>
 			<router-link class="noselect link" to="/articles">Статьи</router-link>
-			<router-link class="noselect link" to="/sql-tutorial">SQL Туториал</router-link>
 			<router-link class="noselect link" to="/support">Об. Связь</router-link>
+			<router-link class="noselect link" to="/check-cpu">Тест процессора</router-link>
 		</div>
 		<div v-if="!isLogged" id="right-buttons">
 			<router-link class="noselect link" to="/signin">Войти</router-link>
 			<router-link class="noselect link" to="/signup">Регистрация</router-link>
 		</div>
 		<div v-else id="right-profile">
+			<h4 id="user">{{ username }}</h4>
+			<img id="pfp-img" src="" />
 		</div>
 	</div>
 </template>
 
 <style scoped>
+#user {
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0 2rem;
+	color: #fff;
+}
+#right-profile {
+	display: table;
+	margin-right: 1rem;
+}
 .m-link:hover {
 	border-bottom: 2px solid #fff;
 }
@@ -222,7 +252,7 @@ onMounted(() => {
 	/*min-width: 8rem;*/
 	background-color: #444;
 	transition: 0.2s cubic-bezier(.22,.07,.56,1.01);
-	grid-template-rows: max-content max-content max-content max-content; 
+	grid-template-rows: max-content max-content max-content max-content max-content; 
 }
 @media (max-width: 32em) {
 	#right-buttons > * {
@@ -251,7 +281,7 @@ onMounted(() => {
 	place-items: center;
 	width: 100%;
 	height: 3rem;
-	background: linear-gradient(#3d3c4e, #423e53);
+	background: linear-gradient(90deg, #4373D9, #2AC9A3);
 }
 @media screen and (max-width: 48em) {
 	#desktop-links {
@@ -277,14 +307,13 @@ onMounted(() => {
 }
 </style>
 
-
-
 <script>
 import { onMounted, ref } from 'vue'
 const isLogged = ref(false)
+const username = ref('Ошибка')
 export default {
 	name: "NavBar",
 	setup() {
-	}
+	},
 }
 </script>
